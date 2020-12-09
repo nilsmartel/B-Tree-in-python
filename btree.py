@@ -12,7 +12,7 @@ def split_list(list):
 
 class BTreeNode:
     def __init__(self, keys = [], parent = None):
-        self.parent = None
+        self.parent = parent
         self.keys = keys
         self.children = []
 
@@ -20,7 +20,7 @@ class BTreeNode:
         return len(self.children) == 0
 
     def is_root(self):
-        return self.parent == None
+        return not self.parent
 
     def remove_child_unsafe(self, child):
         i=0
@@ -67,8 +67,6 @@ class BTreeNode:
             for child in self.children[index:]:
                 u.append_child_unsafe(child)
 
-            i = 0
-
         parent.children.append(l)
         parent.children.append(u)
         parent.children.sort()
@@ -93,6 +91,9 @@ class BTreeNode:
             self.keys.append(key)
             self.keys.sort()
             if len(self.keys) > 3:
+                # TODO remove
+                if self.keys == ['g', 'h', 'i', 'r']:
+                    print("break")
                 self.split(tree)
 
             return

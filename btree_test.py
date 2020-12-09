@@ -17,12 +17,9 @@ test_split_list()
 def test_btree():
     print("test_btree")
     t = BTree()
-    t.add_key('b')
-    for c in "ergha":
+    for c in "berghain":
         t.add_key(c)
-    t.add_key('a')
-    for c in "in":
-        t.add_key(c)
-    print(t.string())
+        print(f"\n{c}")
+        print(t.string())
 
 test_btree()
