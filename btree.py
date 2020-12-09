@@ -75,7 +75,7 @@ class BTreeNode:
 
         # at last we need to check, if the parent has too many keys left and recurively fix that.
         if len(parent.keys) > 3:
-            parent.split()
+            parent.split(tree)
 
 
 
