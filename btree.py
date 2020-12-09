@@ -111,12 +111,9 @@ class BTreeNode:
 
 class BTree:
     def __init__(self):
-        self.root = None
+        self.root = BTreeNode([])
 
     def string(self):
-        if not self.root:
-            return "[]"
-
         s = ""
         q = [self.root, None]
         while len(q) != 0:
@@ -133,8 +130,4 @@ class BTree:
         return s
 
     def add_key(self, key):
-        if not self.root:
-            self.root = BTreeNode([key])
-            return
-
         self.root.add_key(self, key)
